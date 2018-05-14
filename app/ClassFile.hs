@@ -56,7 +56,7 @@ data Access
   | Transient
   | Synthetic
   | Enumeration
-  deriving (Show, Eq)
+  deriving Show
 
 class ConstantLookup a where
   lookupConstant :: JavaClass -> a -> Constant
@@ -92,8 +92,6 @@ accessBits =
   , (0x4000, Enumeration)
   ]
 
--- getOpcodes :: [Opcode]
--- getOpcodes = enumFrom NOP
 getAccess :: Word16 -> [Access]
 getAccess accessFlags =
   catMaybes .
